@@ -21,10 +21,21 @@ export const getRandomDate = (start: Date, end: Date) => {
 
 // function to compare data
 export function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
+  const getValue = (item: any, key: keyof T) => {
+    if (key === "price") {
+      // Convert price string to a float, removing any currency symbols
+      return parseFloat(item[key].replace(/[^0-9.-]+/g, ""));
+    }
+    return item[key];
+  };
+
+  const aValue = getValue(a, orderBy);
+  const bValue = getValue(b, orderBy);
+
+  if (bValue < aValue) {
     return -1;
   }
-  if (b[orderBy] > a[orderBy]) {
+  if (bValue > aValue) {
     return 1;
   }
   return 0;
