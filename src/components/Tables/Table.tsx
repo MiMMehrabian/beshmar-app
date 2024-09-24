@@ -223,11 +223,14 @@ function TableComponent() {
                       {" "}
                       <Typography
                         fontFamily={"vazir"}
-                        color="#040714"
                         fontWeight={400}
                         fontSize={14}
                       >
-                        {row.factorType === 1 ? "خرید" : "فروش"}
+                         <span
+                          className={`${row.factorType === 1 ? "bg-[#0096A114]" : "bg-[#eb5f2823]"} ${row.factorType === 1 ? "text-[#0096A1]" : "text-[#EB5E28]"} rounded p-1 text-xs`}
+                        >
+                          {row.factorType === 1 ? "خرید" : "فروش"}
+                        </span>
                       </Typography>
                     </TableCell>
                     <TableCell align="right" padding="normal">
