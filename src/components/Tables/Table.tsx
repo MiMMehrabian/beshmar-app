@@ -178,7 +178,7 @@ function TableComponent() {
                         fontSize={14}
                         textAlign={"center"}
                       >
-                        {row.id}
+                        {row.id.toLocaleString("fa-IR", { useGrouping: false })}
                       </Typography>
                     </TableCell>
                     <TableCell align="right" padding="normal">
@@ -188,7 +188,9 @@ function TableComponent() {
                         fontWeight={400}
                         fontSize={14}
                       >
-                        {row.code}
+                        {row.code.toLocaleString("fa-IR", {
+                          useGrouping: false,
+                        })}
                       </Typography>
                     </TableCell>
                     <TableCell align="right" padding="normal">
@@ -226,7 +228,7 @@ function TableComponent() {
                         fontWeight={400}
                         fontSize={14}
                       >
-                         <span
+                        <span
                           className={`${row.factorType === 1 ? "bg-[#0096A114]" : "bg-[#eb5f2823]"} ${row.factorType === 1 ? "text-[#0096A1]" : "text-[#EB5E28]"} rounded p-1 text-xs`}
                         >
                           {row.factorType === 1 ? "خرید" : "فروش"}
@@ -241,7 +243,7 @@ function TableComponent() {
                         fontWeight={400}
                         fontSize={14}
                       >
-                        {row.count} قلم
+                        {Intl.NumberFormat("fa-IR").format(row.count)} قلم
                       </Typography>
                     </TableCell>
                     <TableCell align="right" padding="normal">
@@ -252,7 +254,11 @@ function TableComponent() {
                         fontWeight={400}
                         fontSize={14}
                       >
-                        {Intl.NumberFormat().format(parseFloat(row.price))}
+                        <span className="font-vazir">
+                          {Intl.NumberFormat("fa-IR")
+                            .format(parseFloat(row.price))
+                            .toString()}
+                        </span>
                       </Typography>
                     </TableCell>
                     <TableCell align="right" padding="normal">
@@ -288,7 +294,10 @@ function TableComponent() {
           </div>
         )}
 
-       <Box className="!flex !justify-between !flex-col md:!flex-row !gap-y-4 mt-2" pb={1}>
+        <Box
+          className="mt-2 !flex !flex-col !justify-between !gap-y-4 md:!flex-row"
+          pb={1}
+        >
           <CustomPaginationActions
             count={data.length}
             page={page}
