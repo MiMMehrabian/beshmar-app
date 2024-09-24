@@ -288,7 +288,7 @@ function TableComponent() {
           </div>
         )}
 
-        <Box display={"flex"} justifyContent={"space-between"} pb={1}>
+       <Box className="!flex !justify-between !flex-col md:!flex-row !gap-y-4 mt-2" pb={1}>
           <CustomPaginationActions
             count={data.length}
             page={page}
