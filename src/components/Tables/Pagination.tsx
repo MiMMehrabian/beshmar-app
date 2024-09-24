@@ -25,7 +25,7 @@ export default function CustomPaginationActions(props: {
         className="!min-w-min pr-3 !text-sm !text-[#040714]"
         fontFamily={"vazir"}
       >
-        از {pageCount} صفحه
+        از {pageCount.toLocaleString("fa-IR", { useGrouping: false })} صفحه
       </Typography>
       <IconButton
         onClick={(event) => handlePageButtonClick(event, page - 1)}
@@ -43,7 +43,7 @@ export default function CustomPaginationActions(props: {
           className={`${number === page ? "!bg-[#EEEEEE]" : "!bg-white"} !min-w-min !border-[#ECECEC] !text-sm !text-[#6F6F6F] !shadow-none`}
           size="small"
         >
-          {number + 1}
+         <span className="font-vazir"> {(number + 1).toLocaleString("fa-IR", { useGrouping: false })}</span>
         </Button>
       ))}
       <IconButton
