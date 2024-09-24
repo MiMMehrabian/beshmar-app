@@ -20,7 +20,7 @@ export default function CustomPaginationActions(props: {
   };
 
   return (
-    <div dir="ltr" className="flex place-items-center justify-between px-5">
+    <div dir="ltr" className="flex place-items-center justify-center md:justify-between px-5">
       <Typography
         className="!min-w-min pr-3 !text-sm !text-[#040714]"
         fontFamily={"vazir"}
