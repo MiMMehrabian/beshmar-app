@@ -317,7 +317,10 @@ function TableComponent() {
               color="#040714"
               fontSize={14}
             >
-              نمایش {start} تا {end} از {data.length} محصول
+              نمایش {start.toLocaleString("fa-IR", { useGrouping: false })} تا{" "}
+              {end.toLocaleString("fa-IR", { useGrouping: false })} از{" "}
+              {data.length.toLocaleString("fa-IR", { useGrouping: false })}{" "}
+              محصول
             </Typography>
             <Typography
               align="right"
@@ -337,10 +340,18 @@ function TableComponent() {
                 onChange={(e) => handleChangeRowsPerPage(e)}
                 dir="rtl"
               >
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
+                <option value="5">
+                  {(5).toLocaleString("fa-IR", { useGrouping: false })}
+                </option>
+                <option value="10">
+                  {(10).toLocaleString("fa-IR", { useGrouping: false })}
+                </option>
+                <option value="20">
+                  {(20).toLocaleString("fa-IR", { useGrouping: false })}
+                </option>
+                <option value="30">
+                  {(30).toLocaleString("fa-IR", { useGrouping: false })}
+                </option>
               </select>
               ردیف
             </Typography>
